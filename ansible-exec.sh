@@ -46,9 +46,9 @@ while [ -n "$1" ]; do
                 var=${var%%=*}
             else
                 value=`get_arg "$@"` || args_error $1
+                shift
             fi
             ansible_args+=(-e "$var=\"$value\"")
-            shift
             ;;
         *)
             echo "$0: Invalid argument: $1" >&2
