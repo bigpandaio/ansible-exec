@@ -26,7 +26,7 @@ fi
 playbook=$1
 playbook_dir=`dirname "$playbook"`
 inventory="ansible_exec_dummy,"
-ansible_playbook=ansible_playbook
+ansible_playbook=ansible-playbook
 ansible_args=()
 
 shift
