@@ -60,4 +60,4 @@ while [ -n "$1" ]; do
 done
 
 cd "$playbook_dir"
-echo $ansible_playbook -i "$inventory" "$playbook" "${ansible_args[@]}"
+$ansible_playbook -i "$inventory" "$playbook" "${ansible_args[@]}"
