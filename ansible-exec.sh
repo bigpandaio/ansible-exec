@@ -7,9 +7,7 @@ function usage {
 function get_arg {
     opt=$1
     shift
-    if [ -z "$1" ]; then
-        return 1
-    fi
+    [ $# = 0 ] && return 1
     echo $1
 }
 
@@ -43,7 +41,12 @@ while [ -n "$1" ]; do
             ;;
         --*)
             var=${1#--}
-            value=`get_arg "$@"` || args_error $1
+            if echo $var | grep -q =; then
+                value=${var#*=}
+                var=${var%%=*}
+            else
+                value=`get_arg "$@"` || args_error $1
+            fi
             ansible_args+=(-e "$var=\"$value\"")
             shift
             ;;
@@ -57,4 +60,4 @@ while [ -n "$1" ]; do
 done
 
 cd "$playbook_dir"
-$ansible_playbook -i "$inventory" "$playbook" "${ansible_args[@]}"
+echo $ansible_playbook -i "$inventory" "$playbook" "${ansible_args[@]}"
