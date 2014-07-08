@@ -13,6 +13,6 @@ An ansible-playbook wrapper, meant to be used as the interpreter for ansible pla
 ## Parameters
 `ansible-exec` currently handlers three kinds of parameters passed to the playbook when executing:
 * `-i INVENTORY`: Set the inventory file to use. If not passed, a dummy inventory will be used (useful for localhost playbooks).
-* `--variable VALUE`: Set the variable name to VALUE. Will be passed to `ansible-playbook` as: `-e variable="VALUE"`
+* `--variable VALUE`: Set variable to VALUE. Will be passed to `ansible-playbook` as: `-e variable="VALUE"`
 * Raw ansible-playbooks parameters: Just put them after a `--` parameter: `./playbook.yml -i inventory -- --skip-tags someapp`
 
