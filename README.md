@@ -16,3 +16,7 @@ An ansible-playbook wrapper, meant to be used as the interpreter for ansible pla
 * `--variable VALUE`: Set variable to VALUE. Will be passed to `ansible-playbook` as: `-e variable="VALUE"`
 * Raw ansible-playbooks parameters: Just put them after a `--` parameter: `./playbook.yml -i inventory -- --skip-tags someapp`
 
+## Config file
+You can place  a config file at `~/.ansible_exec.conf` or `/etc/ansible/ansible_exec.conf`. Currently available options:
+* ANSIBLE_PLAYBOOK_ARGS: Parameters that will always be passed to `ansible-playbook`. Useful for vault passoword files.
+* DEFAULT_INVENTORY: Override the default dummy inventory behavior when `-i` isn't passed.

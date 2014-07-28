@@ -31,7 +31,7 @@ ansible_args=()
 for c in "${conf_files[@]}"; do
     if [ -f "$c" ]; then
         source "$c"
-        [ -n "$ANSIBLE_PLAYBOOK_ARGS" ] && absible_args+=("${ANSIBLE_PLAYBOOK_ARGS[@]}")
+        [ -n "$ANSIBLE_PLAYBOOK_ARGS" ] && ansible_args+=("${ANSIBLE_PLAYBOOK_ARGS[@]}")
         [ -n "$DEFAULT_INVENTORY" ] && inventory=$DEFAULT_INVENTORY
         break
     fi
