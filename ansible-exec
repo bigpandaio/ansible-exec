@@ -25,7 +25,7 @@ playbook=$1
 playbook_dir=`dirname "$playbook"`
 inventory="ansible_exec_dummy,"
 ansible_playbook=ansible-playbook
-conf_files=(~/.ansible_exec.conf /etc/ansible/ansible_exec.conf)
+conf_files=(~/.ansible-exec.conf /etc/ansible/ansible-exec.conf)
 ansible_args=()
 
 for c in "${conf_files[@]}"; do
