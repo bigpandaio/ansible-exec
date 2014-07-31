@@ -3,7 +3,7 @@ ansible-exec
 An ansible-playbook wrapper, meant to be used as the interpreter for ansible playbooks.
 
 ## Basic Usage
-* Put `ansible-exec` where ever you want, say /usr/local/bin or in your playbooks repository.
+* Run `make install` to put ansible-exec in `/usr/local/bin` and config in `/etc/ansible`
 * Put the path to ansible-exec.sh in a shebang line for a playbook you wish to exec: `#!/usr/local/bin/ansible-exec`
 * Add execute permissions to the playbook: `chmod u+x playbook.yml`
 * Run it! `./playbook.yml`
