@@ -68,5 +68,4 @@ while [ -n "$1" ]; do
     shift
 done
 
-cd "$playbook_dir"
-exec $ansible_playbook -i "$inventory" "$playbook" "${ansible_args[@]}"
+exec $ansible_playbook -i "$playbook_dir/$inventory" "$playbook" "${ansible_args[@]}"
