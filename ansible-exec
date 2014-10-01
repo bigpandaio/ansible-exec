@@ -55,7 +55,7 @@ while [ -n "$1" ]; do
     case "$1" in
         --)
             shift
-            ansible_args+=($@)
+            ansible_args+=("$@")
             break
             ;;
         -i)
@@ -71,6 +71,9 @@ while [ -n "$1" ]; do
                 value=`get_arg "$@"` || args_error $1
                 shift
             fi
+
+            # Support var_name being passed as --var-name
+            var=${var//-/_}
             ansible_args+=(-e "$var=\"$value\"")
             ;;
         *)
