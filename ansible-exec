@@ -62,6 +62,13 @@ while [ -n "$1" ]; do
             inventory=`get_arg "$@"` || args_error $1
             shift
             ;;
+        -e)
+            var=`get_arg "$@"` || args_error $1
+            var=${2%%=*}
+            value=${2#*=}
+            ansible_args+=(-e "$var=\"$value\"")
+            shift
+            ;;
         --*)
             var=${1#--}
             if echo $var | grep -q =; then
